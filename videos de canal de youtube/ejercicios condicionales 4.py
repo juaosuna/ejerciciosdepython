@@ -1,47 +1,38 @@
-# construir un programa que simule el funcionamiento de una calculadora que puede realizar
-#las cuatro operaciones aritmeticas basicas(su,a,resta,multiplicacion y division).
-#el usuario debe especificar la operacion con el primer caracter del nombre de la operacion.
+#hacer un programa que simule un cajero automatico con un saldo inicial de $1000 y tendra el
+# siguiente menu de opciones:
+#1.ingresar dinero en la cuenta
+#2.retirar el dinero de la cuenta
+#3.mostrar dinero disponible
+#4.salir
 
-# S , s - Suma
-# R , r -Resta
-# P , p , M, m -Multiplicacion
-# D , d - Division
-# RD, rd - residuo de la division
-#upper _ es para convertir las letras en mayuscula 
+saldo=1000
 
-from ast import Break
+print("*\t.:Menu:.")
+print("1. ingresar dinero en la cuenta")
+print("2. retirar dinero de la cuenta")
+print("3. mostrar dinero disponible")
+print("4. salir")
+opcion =int(input("digite una opcion de menu:"))
 
-num1 = float(input("Digite un numero:"))
-num2 = float(input("Digite un numero:"))
-operacion = input("digite la operacion:").upper()
-Opcionoperacion=int(input("digite tipo de salida 4.Resultado 5.salir:"))
+print()
 
+if opcion==1:
+    extra = float(input("cuanto dinero desea ingresar"))
+    saldo += extra
+    print(f"dinero en la cuenta:{saldo}")
+elif opcion==2:
+    retirar=float(input("cuanto dinero desea retirar"))
+    if retirar>saldo:
+        print("no tiene esa cantidad de dinero")
+    else: 
+        saldo -= retirar
+        print(f"dinero en la cuenta:{saldo}")
 
-while Opcionoperacion:
-    if operacion== 'S':
-       suma = num1+num2
-    print(f"\n la suma es:{suma}")
-    
-    if operacion== 'R':
-     resta = num1-num2
-    print(f"\n la resta es:{resta}")
-     
-     
-    if operacion== 'M' or operacion=='p':
-     mult = num1*num2
-    print(f"\n la multiplicacion es:{mult}")
-
-
-    if operacion== 'D':
-     div= num1/num2
-    print(f"\n la division es:{div:.2f}")
+elif opcion==3:
+    print(f"dinero en la cuenta:{saldo}")
+elif opcion==4:
+    print("gracias por utilizar su cajero automatico")
+else:
+    print("error,se equivoco de opcion de Menu")
 
 
-    if operacion=='J':
-     resi= num1%num2
-    print(f"\n el residuo de la division es:{resi:.2f}")
-     
-print("Gracias por utilizar la calculadora")
-    
-
- 
